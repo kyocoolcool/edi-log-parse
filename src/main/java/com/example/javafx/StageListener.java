@@ -1,5 +1,8 @@
 package com.example.javafx;
 
+import com.jfoenix.assets.JFoenixResources;
+
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -35,7 +38,13 @@ public class StageListener implements ApplicationListener<JavafxApplication.Stag
             FXMLLoader fxmlLoader = new FXMLLoader(url);
             fxmlLoader.setControllerFactory(applicationContext::getBean);
             Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root, 600, 600);
+            Scene scene = new Scene(root, 310, 410);
+
+            final ObservableList<String> stylesheets = scene.getStylesheets();
+            stylesheets.addAll(JFoenixResources.load("css/jfoenix-fonts.css").toExternalForm(),
+                    JFoenixResources.load("css/jfoenix-design.css").toExternalForm(),
+                    BootifulFxApplication.class.getResource("/css/jfoenix-main-demo.css").toExternalForm());
+
             stage.setScene(scene);
             stage.setTitle(this.applicationTitle);
             stage.show();

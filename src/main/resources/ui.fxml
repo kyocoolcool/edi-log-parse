@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.SimpleUiController">
-   <Button fx:id="fileUploadButton" mnemonicParsing="false" onAction="#singleFileChooser" text="File Upload" />
-   <RadioButton fx:id="selectAllTime" mnemonicParsing="false" selected="true" text="SelectAllTime">
-      <toggleGroup>
-         <ToggleGroup fx:id="timeCheckButton" />
-      </toggleGroup>
-   </RadioButton>
-   <RadioButton fx:id="selectAreaTime" mnemonicParsing="false" text="SelectAreaTime" toggleGroup="$timeCheckButton" />
-      <Label fx:id="fromTimeLabel" text="FromTime" />
-   <TextField fx:id="fromTime" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="84.0" />
-   <Label fx:id="toTimeLabel" layoutX="10.0" layoutY="71.0" text="ToTime" />
-   <TextField fx:id="toTime" disable="true" layoutX="10.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="84.0" />
-   <Text fx:id="statusText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="68.0" />
-   <Button fx:id="exportButton" disable="true" mnemonicParsing="false" onAction="#exportEDI" text="ExportButton" />
-</VBox>
+<AnchorPane fx:id="myPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="310.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.SimpleUiController">
+   <children>
+      <JFXButton fx:id="exportButton" buttonType="RAISED" disable="true" layoutX="31.0" layoutY="280.0" onAction="#exportEDI" prefHeight="40" prefWidth="100" styleClass="custom-jfx-button-raised" text="Export" />
+      <RadioButton fx:id="selectAllTime" layoutX="31.0" layoutY="119.0" mnemonicParsing="false" selected="true" text="SelectAllTime" textFill="WHITE">
+         <toggleGroup>
+            <ToggleGroup fx:id="timeCheckButton" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="selectAreaTime" layoutX="31.0" layoutY="151.0" mnemonicParsing="false" text="SelectAreaTime" textFill="WHITE" toggleGroup="$timeCheckButton" />
+      <Label fx:id="fromTimeLabel" layoutX="190.0" layoutY="183.0" text="FromTime" textFill="WHITE" />
+      <TextField fx:id="fromTime" disable="true" layoutX="31.0" layoutY="216.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#fromTimeKey" prefHeight="26.0" prefWidth="84.0" />
+      <Label fx:id="toTimeLabel" layoutX="31.0" layoutY="182.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="111.0" text="ToTime" textFill="WHITE" />
+      <TextField fx:id="toTime" disable="true" layoutX="184.0" layoutY="216.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#toTimeKey" prefHeight="26.0" prefWidth="84.0" />
+      <Text fill="RED" layoutX="31.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Format (yyyy-MM-dd HH:mm:ss:SSS)" wrappingWidth="280.0" />
+      <JFXButton fx:id="fileUploadButton" layoutX="23.0" layoutY="25.0" onAction="#loadFile" styleClass="custom-jfx-button-raised2" text=" File Upload" />
+      <Text fx:id="statusText" fill="WHITE" layoutX="31.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="249.0" />
+   </children>
+</AnchorPane>

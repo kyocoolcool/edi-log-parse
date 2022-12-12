@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.layout.HBox?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="298.0" prefWidth="429.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.SimpleUiController">
+   <Button fx:id="fileUploadButton" mnemonicParsing="false" onAction="#singleFileChooser" prefHeight="25.0" prefWidth="142.0" text="File Upload" />
+   <JFXButton fx:id="AAAAA" text="AAAAAAAAAAA" />
+   <RadioButton fx:id="selectAllTime" mnemonicParsing="false" selected="true" text="SelectAllTime">
+      <toggleGroup>
+         <ToggleGroup fx:id="timeCheckButton" />
+      </toggleGroup>
+   </RadioButton>
+   <RadioButton fx:id="selectAreaTime" mnemonicParsing="false" text="SelectAreaTime" toggleGroup="$timeCheckButton" />
+      <Label fx:id="fromTimeLabel" text="FromTime" />
+   <TextField fx:id="fromTime" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="84.0" />
+   <Label fx:id="toTimeLabel" layoutX="10.0" layoutY="71.0" text="ToTime" />
+   <TextField fx:id="toTime" disable="true" layoutX="10.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="84.0" />
+   <Text fx:id="statusText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="68.0" />
+   <Button fx:id="exportButton" disable="true" mnemonicParsing="false" onAction="#exportEDI" text="ExportButton" />
+
+   <Label styleClass="title-label">Styling Options</Label>
+   <HBox spacing="20" style="-fx-padding: 0 0 0 50;">
+      <JFXButton buttonType="RAISED" prefHeight="40" prefWidth="100" styleClass="custom-jfx-button-raised" text="CUSTOM RIPPLER" />
+   </HBox>
+</VBox>
